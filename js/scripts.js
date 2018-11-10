@@ -1,8 +1,8 @@
 'use strict';
 
-var carouselWidth = function() {
+var fixCarouselWidth = function() {
   // < 768px carousel full window
-  var carousel = document.getElementsByClassName('slider')[0];
+  var carousel = document.querySelector('.slider');
   var width = window.innerWidth;
 
   if (width < 768) {
@@ -10,7 +10,16 @@ var carouselWidth = function() {
   }
 };
 
-carouselWidth();
+fixCarouselWidth();
+
+var fixDescriptionHeight = function () {
+  var sliderHeight = document.querySelector('#carouselExampleIndicators').clientHeight;
+  var greetingDescription = document.querySelector('.greeting__description');
+
+  greetingDescription.style.height = sliderHeight + 'px';
+};
+
+fixDescriptionHeight();
 
 var changeSlidePortfolio = function (e) {
   e.preventDefault();
@@ -42,7 +51,6 @@ var getPopupPortfolio = function(){
   var img = document.querySelector('.portfolio__col-active')
   .querySelector('.portfolio__carousel-img');
   var imgPopup = popup.querySelector('.portfolio__popup-img');
-  var spanClose = document.querySelector('.portfolio__popup-close');
 
   popup.style.display = 'block';
   imgPopup.src = img.src;
@@ -54,10 +62,9 @@ var portfolioClosePopup = function() {
 };
 
 var changeOurServiceContentClick = function() {
-  // TODO: нужен рефакторинг
   var pseudoLinks = document.querySelectorAll('.our-service_link');
 
-  pseudoLinks.forEach(function (itemLink) {
+  pseudoLinks.forEach(function (itemLink, index) {
     itemLink.onclick = function changeOurServiceContent (e) {
       var arrayLinks = [];
       var activeLink = document.querySelector('.our-service_items-active');
@@ -67,7 +74,6 @@ var changeOurServiceContentClick = function() {
 
       e.preventDefault();
 
-      //для поиска индекса активной ссылки
       if (this.parentNode !== activeLink) {
         var itemsValue = itemLink.innerHTML;
         arrayLinks.push(itemsValue);
@@ -77,15 +83,11 @@ var changeOurServiceContentClick = function() {
       activeLink = this.parentNode.classList.add('our-service_items-active');
       activeLinkValue = this.innerHTML;
 
-      var indexNew = arrayLinks.indexOf(activeLinkValue);
+      contentActive.classList.remove('our-service__content-active');
 
-      content.forEach(function(itemContent, index) {
-        contentActive.classList.remove('our-service__content-active');
-
-        if (index === indexNew) {
-          itemContent.classList.add('our-service__content-active');
-        }
-      });
+      if (itemLink.textContent === activeLinkValue) {
+        content[index].classList.add('our-service__content-active');
+      }
     }
   });
 };

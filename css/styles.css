@@ -3,7 +3,8 @@
   padding: 0;
 }
 .header {
-  height: 100vh;
+  height: 769px;
+  max-height: 100vh;
   width: 100%;
 }
 .header__block {
@@ -28,7 +29,6 @@
   background-color: rgba(17, 37, 55, 0.97);
   color: #fff;
   height: 769px;
-  display: table;
   max-height: 100vh;
   z-index: 999;
   position: absolute;
@@ -41,9 +41,9 @@
   margin: 25px 0;
 }
 .greeting__description {
-  display: table-cell;
-  vertical-align: middle;
   padding: 0 20%;
+  position: absolute;
+  top: 82px;
 }
 .slider {
   position: absolute;
@@ -80,7 +80,7 @@
 }
 .social {
   position: absolute;
-  bottom: 35px;
+  bottom: 10px;
 }
 .social__link {
   display: inline-block;

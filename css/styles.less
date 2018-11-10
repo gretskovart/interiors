@@ -1,4 +1,4 @@
-out: styles.css, sourcemap: false, compress: false
+// out: styles.css, compress: false, sourceMap: false
 
 @white: #fff;
 @black: #000;
@@ -39,7 +39,8 @@ out: styles.css, sourcemap: false, compress: false
 
 //header
 .header{
-  .h(100vh);
+  .h(769px);
+  max-height: 100vh;
   .w(100%);
   &__block{
     .h(54px);
@@ -68,7 +69,6 @@ out: styles.css, sourcemap: false, compress: false
   .background(rgba(17, 37, 55, .97));
   .color(@white);
   .h(769px);
-  display: table;
   max-height: 100vh;
   z-index: 999;
   position: absolute;
@@ -78,9 +78,9 @@ out: styles.css, sourcemap: false, compress: false
     margin: 25px 0;
   }
   &__description{
-    display: table-cell;
-    vertical-align: middle;
     padding: 0 20%;
+    position: absolute;
+    top: 82px;
   }
 }
 
@@ -120,7 +120,7 @@ out: styles.css, sourcemap: false, compress: false
 }
 .social{
   position: absolute;
-  bottom: 35px;
+  bottom: 10px;
 }
 
 .social__link{

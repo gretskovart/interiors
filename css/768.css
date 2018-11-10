@@ -49,7 +49,7 @@
   right: 0;
   max-width: 100vw;
   height: 100vh;
-  padding-top: 40%;
+  padding-top: 33%;
 }
 .header .dropdown-menu.show .dropdown-item {
   font-size: 6vw;
@@ -75,4 +75,10 @@
 }
 .dropdown-menu__social__link-fb {
   background-position: -285px, 0;
+}
+.form__content {
+  padding: 0 40px!important;
+}
+.footer {
+  text-align: center;
 }
